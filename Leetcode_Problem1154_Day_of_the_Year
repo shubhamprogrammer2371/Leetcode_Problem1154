@@ -1,0 +1,7 @@
+int dayOfYear(char * date){
+    int month[]={31,28,31,30,31,30,31,31,30,31,30,31} , sum = 0;
+    month[1] += (!(atoi(date) % 400) || (!(atoi(date) % 4) && (atoi(date) % 100))) ? 1 : 0; 
+    for(int i = 0 ; i < atoi(date + 5) - 1 ; i++)
+        sum += month[i];
+    return atoi(date + 8) + sum;
+}
